@@ -1,0 +1,20 @@
+# Node
+node_modules/
+dist/
+build/
+logs/
+
+# Node binary
+lib/
+libs/
+
+# Environment
+.env*
+!.env*example
+
+# IDE
+#.vscode
+.idea
+
+# Misc
+.DS_Store

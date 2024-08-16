@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "CommonJS",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": ["es2015", "es2016", "es2017", "dom", "esnext.asynciterable"],
+    "strict": true,
+    "strictNullChecks": false,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "build"]
+}

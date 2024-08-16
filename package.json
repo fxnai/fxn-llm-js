@@ -1,0 +1,60 @@
+{
+  "name": "@fxn/llm",
+  "version": "0.0.1",
+  "description": "Use local LLMs in your browser and Node.js apps.",
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:umd",
+    "build:esm": "echo Using TypeScript && tsc --version && tsc --pretty",
+    "build:umd": "npx rollup --config --bundleConfigAsCjs",
+    "test": "TS_NODE_PROJECT=tsconfig.test.json npx mocha --require ts-node/register --require dotenv/config --colors --recursive --timeout 999999 test/**/*.ts",
+    "clean": "rm -rf build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxnai/fxn-llm-js.git"
+  },
+  "author": "NatML Inc. <hi@natml.ai> (https://natml.ai)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/fxnai/fxn-llm-js/issues"
+  },
+  "homepage": "https://github.com/fxnai/fxn-llm-js#readme",
+  "files": [
+    "build",
+    "scripts"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "build/lib/index.js",
+  "typings": "build/types/index.d.ts",
+  "unpkg": "build/umd/fxn.js",
+  "dependencies": {
+    "fxnjs": "^0.0.38"
+  },
+  "devDependencies": {
+    "@testdeck/mocha": "^0.3.3",
+    "@types/chai": "^4.3.17",
+    "@types/chai-as-promised": "^7.1.8",
+    "@types/mocha": "^10.0.7",
+    "chai": "^5.1.1",
+    "chai-as-promised": "^8.0.0",
+    "dotenv": "^16.4.5",
+    "mocha": "^10.7.3",
+    "rollup": "^4.20.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0"
+  },
+  "keywords": [
+    "Function",
+    "LLM",
+    "OpenAI",
+    "Anthropic",
+    "embeddings",
+    "vector",
+    "search",
+    "RAG",
+    "retrieval augmented generation"
+  ]
+}
