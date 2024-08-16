@@ -27,6 +27,9 @@ const fxnllm = new FunctionLLM({
 });
 ```
 
+> [!TIP]
+> If you would like to see a new LLM provider supported, please submit a PR!
+
 ## Running the OpenAI Client Locally
 To run text-generation and embedding models locally using the OpenAI client, specify the `baseUrl` on the client:
 ```js
@@ -39,7 +42,7 @@ const openai = new OpenAI({
 });
 ```
 
-> ![IMPORTANT]
+> [!WARNING]
 > Currently, only `openai.embeddings.create` is supported.
 
 ## Running the Anthropic Client Locally

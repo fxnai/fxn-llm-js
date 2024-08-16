@@ -36,7 +36,7 @@ export class FunctionLLM {
      * LLM API URL.
      * This is a loopback URL that handles requests locally and in-process.
      */
-    public readonly url: string;
+    public readonly baseUrl: string;
 
     public constructor (config: FunctionLLMConfig) {
         const { provider, ...fxnConfig } = config;
