@@ -4,7 +4,7 @@
 
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fy5vwgXkz2f%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Function%20community)](https://fxn.ai/community)
 
-*INCOMPLETE*
+Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients and run inference locally in the current process, using predictors hosted on [Function](https://fxn.ai).
 
 > [!CAUTION]
 > **Never embed access keys client-side (i.e. in the browser)**. Instead, create a proxy URL in your backend.
@@ -28,6 +28,9 @@ const fxnllm = new FunctionLLM({
 ```
 
 > [!TIP]
+> Create an access key by signing onto [Function](https://fxn.ai/settings/developer).
+
+> [!TIP]
 > If you would like to see a new LLM provider supported, please submit a PR!
 
 ## Running the OpenAI Client Locally
@@ -38,12 +41,12 @@ import OpenAI from "openai"
 // Create an OpenAI client
 const openai = new OpenAI({
   baseUrl: fxnllm.baseUrl,
-  apiKey: null
+  apiKey: "fxn"
 });
 ```
 
 > [!WARNING]
-> Currently, only `openai.embeddings.create` is supported.
+> Currently, only `openai.embeddings.create` is supported. Text generation is coming soon!
 
 ## Running the Anthropic Client Locally
 *INCOMPLETE*
