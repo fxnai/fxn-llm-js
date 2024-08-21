@@ -4,7 +4,10 @@
 
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fy5vwgXkz2f%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Function%20community)](https://fxn.ai/community)
 
-Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients and run inference locally in the current process, using predictors hosted on [Function](https://fxn.ai).
+Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients for running inference locally, using predictors hosted on [Function](https://fxn.ai/explore).
+
+> [!IMPORTANT]
+> This package is still a work-in-progress, and will remain in alpha until browser support is added (see #1).
 
 > [!CAUTION]
 > **Never embed access keys client-side (i.e. in the browser)**. Instead, create a proxy URL in your backend.
@@ -16,7 +19,7 @@ npm install @fxn/llm
 ```
 
 ## Creating a Function LLM Instance
-Function LLM works by setting up an in-process server that handles requests for an LLM API provider (e.g. OpenAI, Anthropic). The client provides a `baseUrl` property that can be passed to LLM clients in your code:
+Function LLM works by setting up an in-process server that handles requests for an LLM API provider (e.g. OpenAI, Anthropic).
 ```js
 import { FunctionLLM } from "@fxn/llm"
 
@@ -27,14 +30,13 @@ const fxnllm = new FunctionLLM({
 });
 ```
 
-> [!TIP]
+The client provides a `baseUrl` property that can be passed to LLM clients in your code.
+
+> [!IMPORTANT]
 > Create an access key by signing onto [Function](https://fxn.ai/settings/developer).
 
-> [!TIP]
-> If you would like to see a new LLM provider supported, please submit a PR!
-
-## Running the OpenAI Client Locally
-To run text-generation and embedding models locally using the OpenAI client, specify the `baseUrl` on the client:
+## Using the OpenAI Client Locally
+To run text-generation and embedding models locally using the OpenAI client, pass the Function LLM `baseUrl` on the OpenAI client:
 ```js
 import OpenAI from "openai"
 
@@ -48,8 +50,8 @@ const openai = new OpenAI({
 > [!WARNING]
 > Currently, only `openai.embeddings.create` is supported. Text generation is coming soon!
 
-## Running the Anthropic Client Locally
-*INCOMPLETE*
+## Using the Anthropic Client Locally
+*Coming soon*
 
 ___
 

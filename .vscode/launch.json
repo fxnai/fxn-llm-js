@@ -13,7 +13,9 @@
         "--timeout",
         "999999",
         "--colors",
-        "--recursive"
+        "--recursive",
+        "--extensions",
+        "ts,tsx"
       ],
       "internalConsoleOptions": "openOnSessionStart",
       "env": {
