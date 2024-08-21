@@ -18,28 +18,20 @@ Function LLM is distributed on NPM. Open a terminal and run the following comman
 npm install @fxn/llm
 ```
 
-## Creating a Function LLM Instance
-Function LLM works by setting up an in-process server that handles requests for an LLM API provider (e.g. OpenAI, Anthropic).
+> [!IMPORTANT]
+> Make sure to create an access key by signing onto [Function](https://fxn.ai/settings/developer). You'll need it to fetch the predictor at runtime.
+
+## Using the OpenAI Client Locally
+To run text generation and embedding models locally using the OpenAI client, create a `FunctionLLM` instance then pass its `baseUrl` on the OpenAI client:
 ```js
 import { FunctionLLM } from "@fxn/llm"
+import { OpenAI } from "openai"
 
 // Create Function LLM client
 const fxnllm = new FunctionLLM({
-  provider: "openai", // or "anthropic"
+  provider: "openai",
   accessKey: "<Function access key>"
 });
-```
-
-The client provides a `baseUrl` property that can be passed to LLM clients in your code.
-
-> [!IMPORTANT]
-> Create an access key by signing onto [Function](https://fxn.ai/settings/developer).
-
-## Using the OpenAI Client Locally
-To run text-generation and embedding models locally using the OpenAI client, pass the Function LLM `baseUrl` on the OpenAI client:
-```js
-import OpenAI from "openai"
-
 // Create an OpenAI client
 const openai = new OpenAI({
   baseUrl: fxnllm.baseUrl,
@@ -51,8 +43,25 @@ const openai = new OpenAI({
 > Currently, only `openai.embeddings.create` is supported. Text generation is coming soon!
 
 ## Using the Anthropic Client Locally
-*Coming soon*
+To run text generation models locally using the Anthopic client, create a `FunctionLLM` instance then pass its `baseUrl` on the Anthropic client:
+```js
+import { FunctionLLM } from "@fxn/llm"
+import { Anthropic } from "@anthropic-ai/sdk"
 
+// Create Function LLM client
+const fxnllm = new FunctionLLM({
+  provider: "anthropic",
+  accessKey: "<Function access key>"
+});
+// Create an Anthropic client
+const anthropic = new Anthropic({
+  baseUrl: fxnllm.baseUrl,
+  apiKey: "fxn"
+});
+```
+
+> [!DANGER]
+> Anthropic support is not functional as it is still a work-in-progress.
 ___
 
 ## Useful Links
