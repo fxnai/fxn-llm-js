@@ -15,7 +15,7 @@ Use local LLMs in your browser and Node.js apps. This package is designed to pat
 ## Installing Function LLM
 Function LLM is distributed on NPM. Open a terminal and run the following command:
 ```bash
-npm install @fxn/llm
+npm install fxn-llm
 ```
 
 > [!IMPORTANT]
@@ -24,7 +24,7 @@ npm install @fxn/llm
 ## Using the OpenAI Client Locally
 To run text generation and embedding models locally using the OpenAI client, create a `FunctionLLM` instance then pass its `baseUrl` on the OpenAI client:
 ```js
-import { FunctionLLM } from "@fxn/llm"
+import { FunctionLLM } from "fxn-llm"
 import { OpenAI } from "openai"
 
 // Create Function LLM client
@@ -45,7 +45,7 @@ const openai = new OpenAI({
 ## Using the Anthropic Client Locally
 To run text generation models locally using the Anthopic client, create a `FunctionLLM` instance then pass its `baseUrl` on the Anthropic client:
 ```js
-import { FunctionLLM } from "@fxn/llm"
+import { FunctionLLM } from "fxn-llm"
 import { Anthropic } from "@anthropic-ai/sdk"
 
 // Create Function LLM client
