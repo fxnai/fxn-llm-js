@@ -60,7 +60,7 @@ const anthropic = new Anthropic({
 });
 ```
 
-> [!DANGER]
+> [!CAUTION]
 > Anthropic support is not functional as it is still a work-in-progress.
 ___
 
