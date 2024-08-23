@@ -15,27 +15,26 @@ Use local LLMs in your browser and Node.js apps. This package is designed to pat
 ## Installing Function LLM
 Function LLM is distributed on NPM. Open a terminal and run the following command:
 ```bash
-npm install fxn-llm
+$ npm install fxn-llm
 ```
 
 > [!IMPORTANT]
 > Make sure to create an access key by signing onto [Function](https://fxn.ai/settings/developer). You'll need it to fetch the predictor at runtime.
 
 ## Using the OpenAI Client Locally
-To run text generation and embedding models locally using the OpenAI client, create a `FunctionLLM` instance then pass its `baseUrl` on the OpenAI client:
-```js
-import { FunctionLLM } from "fxn-llm"
+To run text generation and embedding models locally using the OpenAI client, patch your `OpenAI` instance with the `locally` function:
+```ts
+import { locally } from "fxn-llm"
 import { OpenAI } from "openai"
 
-// Create Function LLM client
-const fxnllm = new FunctionLLM({
-  provider: "openai",
-  accessKey: "<Function access key>"
-});
-// Create an OpenAI client
-const openai = new OpenAI({
-  baseUrl: fxnllm.baseUrl,
-  apiKey: "fxn"
+// 💥 Create your OpenAI client
+let openai = new OpenAI();
+// 🔥 Make it local!
+openai = locally(openai);
+// 🚀 Generate embeddings!!
+const embeddings = openai.embeddings.create({
+  model: "@nomic/nomic-embed-text-v1.5-quant",
+  input: "search_query: Hello world!"
 });
 ```
 
@@ -43,25 +42,25 @@ const openai = new OpenAI({
 > Currently, only `openai.embeddings.create` is supported. Text generation is coming soon!
 
 ## Using the Anthropic Client Locally
-To run text generation models locally using the Anthopic client, create a `FunctionLLM` instance then pass its `baseUrl` on the Anthropic client:
+To run text generation models locally using the Anthopic client, patch your `Anthropic` instance with the `locally` function and the following configuration:
 ```js
 import { FunctionLLM } from "fxn-llm"
 import { Anthropic } from "@anthropic-ai/sdk"
 
-// Create Function LLM client
-const fxnllm = new FunctionLLM({
-  provider: "anthropic",
-  accessKey: "<Function access key>"
-});
-// Create an Anthropic client
-const anthropic = new Anthropic({
-  baseUrl: fxnllm.baseUrl,
-  apiKey: "fxn"
+// 💥 Create your Anthropic client
+let anthropic = new Anthropic();
+// 🔥 Make it local!
+anthropic = locally(openai);
+// 🚀 Chat!!
+const message = anthropic.messages.create({
+  model: "@meta/llama-3.1-8b-quant",
+  messages: [{ role: "user", content: "Hello, Llama" }],
+  max_tokens: 1024,
 });
 ```
 
 > [!CAUTION]
-> Anthropic support is not functional as it is still a work-in-progress.
+> Anthropic support is not functional. It is still a work-in-progress.
 ___
 
 ## Useful Links

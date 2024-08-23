@@ -29,9 +29,7 @@
   "typings": "build/types/index.d.ts",
   "unpkg": "build/umd/fxn.js",
   "dependencies": {
-    "express": "^4.19.2",
-    "fxnjs": "^0.0.38",
-    "zod": "^3.23.8"
+    "fxnjs": "^0.0.39"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.26.1",

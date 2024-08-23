@@ -7,35 +7,23 @@ import { expect, should, use } from "chai"
 import chaiAsPromised from "chai-as-promised"
 import { OpenAI } from "openai"
 import mocha from "@testdeck/mocha"
-import { FunctionLLM } from "../src"
+import { locally, LocallyConfig } from "../src"
 
-@mocha.suite("Embeddings")
-class EmbeddingsTest {
+@mocha.suite("OpenAI")
+class OpenAITest {
 
-    private fxnllm: FunctionLLM;
     private openai: OpenAI;
 
     public before () {
         should();
         use(chaiAsPromised);
-        this.fxnllm = new FunctionLLM({
-            provider: "openai",
-            accessKey: process.env.FXN_ACCESS_KEY,
-            url: process.env.FXN_API_URL
-        });
-        this.openai = new OpenAI({
-            baseURL: this.fxnllm.baseUrl,
-            apiKey: "fxn"
-        });
-    }
-
-    public after () {
-        this.fxnllm[Symbol.dispose]();
+        const openai = new OpenAI({ apiKey: "fxn" });
+        this.openai = locally(openai, { accessKey: process.env.FXN_ACCESS_KEY });
     }
 
     @mocha.test
-    async "Should create an OpenAI embedding" () {
-        const tag = "@yusuf/nomic-embed-text-v1-5-quant"
+    async "Should create an embedding" () {
+        const tag = "@nomic/nomic-embed-text-v1.5-quant"
         const embeddings = await this.openai.embeddings.create({
             model: tag,
             input: "search_query: What is the capital of France?"
