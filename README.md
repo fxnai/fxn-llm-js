@@ -7,7 +7,7 @@
 Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients for running inference locally, using predictors hosted on [Function](https://fxn.ai/explore).
 
 > [!IMPORTANT]
-> This package is still a work-in-progress, and will remain in alpha until browser support is added (see #1).
+> This package is still a work-in-progress, so the API could change drastically between **all** releases.
 
 > [!CAUTION]
 > **Never embed access keys client-side (i.e. in the browser)**. Instead, create a proxy URL in your backend.
@@ -29,9 +29,11 @@ import { OpenAI } from "openai"
 
 // 💥 Create your OpenAI client
 let openai = new OpenAI();
-// 🔥 Make it local!
+
+// 🔥 Make it local
 openai = locally(openai);
-// 🚀 Generate embeddings!!
+
+// 🚀 Generate embeddings
 const embeddings = openai.embeddings.create({
   model: "@nomic/nomic-embed-text-v1.5-quant",
   input: "search_query: Hello world!"
@@ -44,14 +46,16 @@ const embeddings = openai.embeddings.create({
 ## Using the Anthropic Client Locally
 To run text generation models locally using the Anthopic client, patch your `Anthropic` instance with the `locally` function and the following configuration:
 ```js
-import { FunctionLLM } from "fxn-llm"
+import { locally } from "fxn-llm"
 import { Anthropic } from "@anthropic-ai/sdk"
 
 // 💥 Create your Anthropic client
 let anthropic = new Anthropic();
-// 🔥 Make it local!
+
+// 🔥 Make it local
 anthropic = locally(openai);
-// 🚀 Chat!!
+
+// 🚀 Chat
 const message = anthropic.messages.create({
   model: "@meta/llama-3.1-8b-quant",
   messages: [{ role: "user", content: "Hello, Llama" }],
