@@ -54,7 +54,7 @@ import { Anthropic } from "@anthropic-ai/sdk"
 let anthropic = new Anthropic();
 
 // 🔥 Make it local
-anthropic = locally(openai);
+anthropic = locally(anthropic);
 
 // 🚀 Chat
 const message = anthropic.messages.create({
