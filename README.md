@@ -7,6 +7,9 @@
 
 Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients for running inference locally, using predictors hosted on [Function](https://fxn.ai/explore).
 
+> [!TIP]
+> We offer a similar package for use in Python. Check out [fxn-llm](https://github.com/fxnai/fxn-llm).
+
 > [!IMPORTANT]
 > This package is still a work-in-progress, so the API could change drastically between **all** releases.
 
@@ -66,6 +69,7 @@ const message = anthropic.messages.create({
 
 > [!CAUTION]
 > Anthropic support is not functional. It is still a work-in-progress.
+
 ___
 
 ## Useful Links
