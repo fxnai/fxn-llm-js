@@ -39,8 +39,7 @@ export function locally<T extends object> (
         url,
         fxn = new Function({ accessKey, url })
     } = config ?? { };
-    if (provider === "openai") {
-        const createEmbeddingsOpenAI = (...args: any[]) => (client as any).embeddings.create(...args);
+    if (provider === "openai")
         return proxy(client, {
             "embeddings.create": async (
                 body: OpenAI.EmbeddingCreateParams,
@@ -49,7 +48,7 @@ export function locally<T extends object> (
                 const { input: inputs, model, encoding_format, dimensions } = body;
                 // Check if OAI model
                 if (!/^@[a-z0-9._-]+\/[a-z0-9._-]+$/.test(model))
-                    return await createEmbeddingsOpenAI(body, options);
+                    return await (client as any).embeddings.create(body, options);
                 // Create prediction
                 const input = typeof inputs === "string" ? [inputs] : inputs;
                 const prediction = await fxn.predictions.create({ tag: model, inputs: { input } });
@@ -69,7 +68,7 @@ export function locally<T extends object> (
                 };
             },
         });
-    } else if (provider === "anthropic")
+    else if (provider === "anthropic")
         return proxy(client, {
             /*
             "messages.create": async (
