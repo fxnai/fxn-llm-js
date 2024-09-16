@@ -45,10 +45,15 @@ export function locally<T extends object> (
                 body: OpenAI.EmbeddingCreateParams,
                 options?: OpenAI.RequestOptions
             ): Promise<OpenAI.CreateEmbeddingResponse> => {
-                const { input: inputs, model, encoding_format, dimensions } = body;
+                const { input: inputs, model, encoding_format = "float", dimensions } = body;
                 // Check if OAI model
                 if (!/^@[a-z0-9._-]+\/[a-z0-9._-]+$/.test(model))
                     return await (client as any).embeddings.create(body, options);
+                // Check
+                if (dimensions != null)
+                    throw new Error(`Explicit dimensionality is not supported`);
+                if (encoding_format !== "float")
+                    throw new Error(`Base64 encoding format is not yet supported`);
                 // Create prediction
                 const input = typeof inputs === "string" ? [inputs] : inputs;
                 const prediction = await fxn.predictions.create({ tag: model, inputs: { input } });
