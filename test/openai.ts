@@ -24,14 +24,14 @@ class OpenAITest {
     @mocha.test
     async "Should create an embedding" () {
         const tag = "@nomic/nomic-embed-text-v1.5-quant"
-        const embeddings = await this.openai.embeddings.create({
+        const embedding = await this.openai.embeddings.create({
             model: tag,
             input: "search_query: What is the capital of France?"
         });
-        expect(embeddings.model).to.eql(tag);
-        expect(embeddings.object).to.eql("list");
-        expect(embeddings.data).to.not.be.empty;
-        expect(embeddings.usage.prompt_tokens).to.eql(0);
-        expect(embeddings.usage.total_tokens).to.eql(0);
+        expect(embedding.model).to.eql(tag);
+        expect(embedding.object).to.eql("list");
+        expect(embedding.data).to.not.be.empty;
+        expect(embedding.usage.prompt_tokens).to.eql(0);
+        expect(embedding.usage.total_tokens).to.eql(0);
     }
 }

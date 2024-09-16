@@ -39,13 +39,18 @@ export function locally<T extends object> (
         url,
         fxn = new Function({ accessKey, url })
     } = config ?? { };
-    if (provider === "openai")
+    if (provider === "openai") {
+        const createEmbeddingsOpenAI = (...args: any[]) => (client as any).embeddings.create(...args);
         return proxy(client, {
             "embeddings.create": async (
                 body: OpenAI.EmbeddingCreateParams,
                 options?: OpenAI.RequestOptions
             ): Promise<OpenAI.CreateEmbeddingResponse> => {
                 const { input: inputs, model, encoding_format, dimensions } = body;
+                // Check if OAI model
+                if (!/^@[a-z0-9._-]+\/[a-z0-9._-]+$/.test(model))
+                    return await createEmbeddingsOpenAI(body, options);
+                // Create prediction
                 const input = typeof inputs === "string" ? [inputs] : inputs;
                 const prediction = await fxn.predictions.create({ tag: model, inputs: { input } });
                 const embeddings = prediction.results[0] as Tensor;
@@ -64,20 +69,22 @@ export function locally<T extends object> (
                 };
             },
         });
-    else if (provider === "anthropic")
+    } else if (provider === "anthropic")
         return proxy(client, {
-            "messages.create": async ( // INCOMPLETE
+            /*
+            "messages.create": async (
                 body: Anthropic.MessageCreateParamsNonStreaming,
                 options?: Anthropic.RequestOptions
             ): Promise<Anthropic.Message> => {
                 return (client as Anthropic).messages.create(body, options);
             },
-            "messages.stream": async function* ( // INCOMPLETE
+            "messages.stream": async function* (
                 body: Anthropic.MessageCreateParamsStreaming,
                 options?: Anthropic.RequestOptions
             ): AsyncGenerator<Anthropic.MessageStreamEvent> {
                 return (client as Anthropic).messages.stream(body, options);
             }
+            */
         });
     else
         return client;
