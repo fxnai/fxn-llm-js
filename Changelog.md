@@ -1,3 +1,6 @@
+## 0.0.3
+*INCOMPLETE*
+
 ## 0.0.2
 + Added `openai.embeddings.create` passthrough to OpenAI when `model` is not a valid Function predictor tag.
 + Upgraded to Function 0.0.40.
