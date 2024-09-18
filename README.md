@@ -1,6 +1,6 @@
 # Function LLM for JavaScript
 
-![function logo](https://raw.githubusercontent.com/fxnai/.github/main/logo_wide.png)
+https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
 
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fy5vwgXkz2f%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Function%20community)](https://fxn.ai/community)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/fxnai)](https://twitter.com/fxnai)
