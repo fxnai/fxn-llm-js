@@ -1,7 +1,8 @@
 # Document Retrieval in the Browser Demo
-This is a demo that uses 
+This is a very basic document retrieval demo. We patch the `OpenAI` client to generate embeddings `locally` using Function LLM. Users can 
+then upload a plain `.txt` file and retrieve relevant information based on a search query.
 
-[GIF here]
+https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
 
 ## Setup Instructions
 In a few steps:
@@ -18,6 +19,9 @@ In a few steps:
     $ npm run dev
     ```
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+> [!WARNING]
+> You must take [additional steps](https://docs.fxn.ai/insiders/keys#in-the-browser) to secure your Function access key before deploying this sample into production.
 
 ___
 
