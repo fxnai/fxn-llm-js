@@ -17,7 +17,7 @@ class OpenAITest {
     public before () {
         should();
         use(chaiAsPromised);
-        const openai = new OpenAI({ apiKey: "fxn" });
+        const openai = new OpenAI({ apiKey: "fxn", dangerouslyAllowBrowser: true });
         this.openai = locally(openai, { accessKey: process.env.FXN_ACCESS_KEY });
     }
 
