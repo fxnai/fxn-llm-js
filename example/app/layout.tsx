@@ -23,6 +23,12 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Function LLM Demo",
   description: "Generate embeddings in the browser using OpenAI and Function LLM.",
+  openGraph: {
+    type: "website",
+    title: "Function LLM Demo",
+    description: "Fully Local Document Retrieval App in the Browser",
+    images: "https://raw.githubusercontent.com/fxnai/.github/main/logo_wide.png"
+  }
 };
 
 export default function RootLayout({
