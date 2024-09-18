@@ -26,6 +26,7 @@ Here's how it works:
 <details>
   <summary>1. Chunking the Document</summary>
 
+  ### Chunking the Document
   When the user uploads a document, we break it into chunks of text. Each chunk will form the smallest unit 
   of knowledge that the AI model can help us retrieve. We split the document into chunks by punctuation 
   (periods and question marks):
@@ -36,13 +37,14 @@ Here's how it works:
   setChunks(chunks);
   ```
 
-> [!TIP]
-> In production systems, you might opt for using advanced chunking algorithms from LLM libraries
-> like Langchain or LlamaIndex.
+  > In production systems, you might opt for using advanced chunking algorithms from LLM libraries
+  > like Langchain or LlamaIndex.
 </details>
 
 <details>
   <summary>2. Building a Vector Database</summary>
+
+  ### Building a Vector Database
   When the user enters their first query, we check whether our vector database has been created. In our case, our 
   vector database is simply an array of OpenAI embeddings, each mapping to a chunk of the uploaded document from the 
   previous step:
@@ -64,6 +66,8 @@ Here's how it works:
 
 <details>
   <summary>3. Retrieving a Document</summary>
+
+  ### Retrieving a Document
   When the user enters a query, we generate an embedding from their text then find the closest embedding in our 
   vector database. The closest embedding will correspond to a chunk of the uploaded document.
 
