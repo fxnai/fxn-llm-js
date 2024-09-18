@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import localFont from "next/font/local"
+import { Analytics } from "@vercel/analytics/react"
+
 import "./globals.css"
 
 const jetbrainsMono = JetBrains_Mono({
@@ -38,6 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
