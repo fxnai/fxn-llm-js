@@ -5,8 +5,8 @@ build/
 logs/
 
 # Node binary
-lib/
-libs/
+/lib/
+/libs/
 
 # Environment
 .env*
