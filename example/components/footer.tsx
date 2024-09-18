@@ -12,7 +12,7 @@ export function Footer ({ className }: FooterProps) {
       aria-labelledby="footer-heading"
     >
       {/* Copyright */}
-      <p className="jetbrains-mono mt-8 text-base text-gray-400 md:order-1 md:mt-0">
+      <p className="jetbrains-mono mt-8 text-base font-semibold text-gray-500 md:order-1 md:mt-0">
         &copy; 2024 NatML Inc. All rights reserved.
       </p>
 

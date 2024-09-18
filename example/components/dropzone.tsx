@@ -40,8 +40,10 @@ export function Dropzone ({ onUpload, className }: DropzoneProps) {
       }
       {
         !isDragActive &&
-        <p className="text-lg">
-          Drop text file here, or click to select a file
+        <p className="text-lg text-gray-400 text-center">
+          Drop text (.txt) file here.
+          <br />
+          Or click to select a file.
         </p>
       }
     </div>
