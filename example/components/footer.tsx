@@ -49,7 +49,7 @@ const social = [
   },
   {
     name: "GitHub",
-    href: "https://github.com/fxnai",
+    href: "https://github.com/fxnai/fxn-llm-js",
     icon: (props: any) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
