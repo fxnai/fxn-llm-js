@@ -11,7 +11,7 @@ In a few steps:
 2. Get an access key from [fxn.ai](https://fxn.ai/settings/developer) and add it to your `.env.local` file:
     ```bash
     # Function
-    FXN_ACCESS_KEY="fxn_..."
+    NEXT_PUBLIC_FXN_ACCESS_KEY="fxn_..."
     ```
 3. Start the development server by running the following in Terminal:
     ```bash
@@ -20,7 +20,7 @@ In a few steps:
     ```
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-> [!WARNING]
+> [!CAUTION]
 > You must take [additional steps](https://docs.fxn.ai/insiders/keys#in-the-browser) to secure your Function access key before deploying this sample into production.
 
 ___
