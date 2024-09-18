@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Function LLM Demo",
-    description: "Fully Local Document Retrieval App in the Browser",
+    description: "Fully Local Document Retrieval App in the Browser.",
     images: "https://raw.githubusercontent.com/fxnai/.github/main/logo_wide.png"
   }
 };
