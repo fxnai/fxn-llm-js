@@ -14,11 +14,12 @@ Use local LLMs in your browser and Node.js apps. This package is designed to pat
 > This package is still a work-in-progress, so the API could change drastically between **all** releases.
 
 > [!CAUTION]
-> **Never embed access keys client-side (i.e. in the browser)**. Instead, create a proxy URL in your backend.
+> **Never embed access keys client-side (i.e. in the browser)**. Instead, [create a proxy URL](https://docs.fxn.ai/insiders/keys#in-the-browser) in your backend.
 
 ## Installing Function LLM
 Function LLM is distributed on NPM. Open a terminal and run the following command:
 ```bash
+# Run this in Terminal
 $ npm install fxn-llm
 ```
 
@@ -32,10 +33,12 @@ import { locally } from "fxn-llm"
 import { OpenAI } from "openai"
 
 // 💥 Create your OpenAI client
-let openai = new OpenAI();
+let openai = new OpenAI({ apiKey: "fxn", dangerouslyAllowBrowser: true });
 
 // 🔥 Make it local
-openai = locally(openai);
+openai = locally(openai, {
+  accessKey: process.env.NEXT_PUBLIC_FXN_ACCESS_KEY
+});
 
 // 🚀 Generate embeddings
 const embeddings = openai.embeddings.create({
