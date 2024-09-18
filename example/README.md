@@ -3,9 +3,6 @@ This is a very basic document retrieval demo. We patch the `OpenAI` client to ge
 
 https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
 
-> [!CAUTION]
-> You must take [additional steps](https://docs.fxn.ai/insiders/keys#in-the-browser) to secure your Function access key before deploying this sample into production.
-
 ## Setup Instructions
 In a few steps:
 
@@ -13,20 +10,21 @@ In a few steps:
 2. Get an access key from [fxn.ai](https://fxn.ai/settings/developer) and add it to your `.env.local` file:
     ```bash
     # Function
-    NEXT_PUBLIC_FXN_ACCESS_KEY="fxn_..."
+    FXN_ACCESS_KEY="fxn_..."
     ```
 3. Start the development server by running the following in Terminal:
     ```bash
     # Start the development server
     $ npm run dev
     ```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to use the app.
 
 ## How It Works
 This demo covers the retrieval step when building a retrieval augmented generation (RAG) pipeline.
 Here's how it works:
 
-### Chunking the Document
+<details>
+<summary>1. Chunking the Document</summary>
 When the user uploads a document, we break it into chunks of text. Each chunk will form the smallest unit 
 of knowledge that the AI model can help us retrieve. We split the document into chunks by punctuation 
 (periods and question marks):
@@ -39,8 +37,10 @@ setChunks(chunks);
 > [!TIP]
 > In production systems, you might opt for using advanced chunking algorithms from LLM libraries
 > like Langchain or LlamaIndex.
+</details>
 
-### Building a Vector Database
+<details>
+<summary>2. Building a Vector Database</summary>
 When the user enters their first query, we check whether our vector database has been created. In our case, our 
 vector database is simply an array of OpenAI embeddings, each mapping to a chunk of the uploaded document from the 
 previous step:
@@ -57,8 +57,10 @@ if (!database) {
 
 > [!TIP]
 > In production systems, you might opt for using a hosted vector database like Weaviate or MongoDB.
+</details>
 
-### Retrieving a Document
+<details>
+<summary>3. Retrieving a Document</summary>
 When the user enters a query, we generate an embedding from their text then find the closest embedding in our 
 vector database. The closest embedding will correspond to a chunk of the uploaded document.
 ```js
@@ -71,6 +73,8 @@ const { data: [queryEmbedding] } = await openai.embeddings.create({
 const resultChunkEmbedding = findClosestEmbedding({ query: queryEmbedding, database });
 const resultChunk = chunks[resultChunkEmbedding.index];
 ```
+</details>
+
 ___
 
 ## Useful Links
