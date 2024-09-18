@@ -25,6 +25,7 @@ Here's how it works:
 
 <details>
   <summary>1. Chunking the Document</summary>
+
   When the user uploads a document, we break it into chunks of text. Each chunk will form the smallest unit 
   of knowledge that the AI model can help us retrieve. We split the document into chunks by punctuation 
   (periods and question marks):
@@ -35,9 +36,9 @@ Here's how it works:
   setChunks(chunks);
   ```
 
-  > [!TIP]
-  > In production systems, you might opt for using advanced chunking algorithms from LLM libraries
-  > like Langchain or LlamaIndex.
+> [!TIP]
+> In production systems, you might opt for using advanced chunking algorithms from LLM libraries
+> like Langchain or LlamaIndex.
 </details>
 
 <details>
