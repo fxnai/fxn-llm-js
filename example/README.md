@@ -28,6 +28,7 @@ Here's how it works:
   When the user uploads a document, we break it into chunks of text. Each chunk will form the smallest unit 
   of knowledge that the AI model can help us retrieve. We split the document into chunks by punctuation 
   (periods and question marks):
+
   ```js
   // When a document is uploaded, we chunk it up
   const chunks = splitDocument({ document });
@@ -44,6 +45,7 @@ Here's how it works:
   When the user enters their first query, we check whether our vector database has been created. In our case, our 
   vector database is simply an array of OpenAI embeddings, each mapping to a chunk of the uploaded document from the 
   previous step:
+
   ```js
   // When a prompt is entered, we make sure we've populated our vector database
   if (!database) {
@@ -63,6 +65,7 @@ Here's how it works:
   <summary>3. Retrieving a Document</summary>
   When the user enters a query, we generate an embedding from their text then find the closest embedding in our 
   vector database. The closest embedding will correspond to a chunk of the uploaded document.
+
   ```js
   // When the user enters a query, we first embed it...
   const { data: [queryEmbedding] } = await openai.embeddings.create({
