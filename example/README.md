@@ -60,7 +60,6 @@ Here's how it works:
   }
   ```
 
-  > [!TIP]
   > In production systems, you might opt for using a hosted vector database like Weaviate or MongoDB.
 </details>
 
@@ -77,6 +76,7 @@ Here's how it works:
     model: "@nomic/nomic-embed-text-v1.5-quant",
     input: `search_query: ${query}`
   });
+
   // Then we find the closest match in our vector database
   const resultChunkEmbedding = findClosestEmbedding({ query: queryEmbedding, database });
   const resultChunk = chunks[resultChunkEmbedding.index];

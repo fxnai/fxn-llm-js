@@ -15,7 +15,7 @@ import { HighlightedText } from "@/components/highlightedText"
 
 const openai = locally(
   new OpenAI({ apiKey: "fxn", dangerouslyAllowBrowser: true }),
-  { accessKey: process.env.NEXT_PUBLIC_FXN_ACCESS_KEY }
+  { url: "/api" }
 );
 
 export default function Home () {
@@ -114,7 +114,7 @@ export default function Home () {
             </ScrollArea>
             
             {/* Chat box */}
-            <ChatBox onMessage={onMessage} />
+            <ChatBox onMessage={onMessage} disabled={!document} />
           </div>
 
         </div>

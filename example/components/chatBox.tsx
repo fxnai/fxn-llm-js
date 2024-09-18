@@ -6,10 +6,11 @@ import { Input } from "@/components/ui/input"
 
 export interface ChatBoxProps {
   onMessage?: (message: string) => any;
+  disabled?: boolean;
   className?: string;
 }
 
-export function ChatBox ({ onMessage, className }: ChatBoxProps) {
+export function ChatBox ({ onMessage, disabled, className }: ChatBoxProps) {
   const [input, setInput] = useState("");
   const handleMessage = () => {
     onMessage?.(input.trim());
@@ -22,7 +23,7 @@ export function ChatBox ({ onMessage, className }: ChatBoxProps) {
         placeholder="Enter your query..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        disabled={!document}
+        disabled={disabled}
         className={clsx(
           "flex-grow mr-2 text-white py-6 px-6 rounded-3xl text-base",
           "border border-gray-200/20 border-dashed font-[family-name:var(--font-geist-sans)]"
@@ -30,7 +31,7 @@ export function ChatBox ({ onMessage, className }: ChatBoxProps) {
         onKeyPress={(e) => e.key === "Enter" && handleMessage()}
       />
       <Button
-        disabled={!document || !input.trim()}
+        disabled={disabled || !input.trim()}
         onClick={handleMessage}
         className="h-full bg-blue-600 transition hover:bg-blue-700 rounded-full disabled:bg-neutral-700"
       >
