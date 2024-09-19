@@ -2,25 +2,30 @@
 
 https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffxnai%2Ffxn-llm-js%2Ftree%2Fmain%2Fexample&env=FXN_ACCESS_KEY&envDescription=Provide%20your%20Function%20access%20key%20to%20pull%20the%20Nomic%20embedding%20function.&envLink=https%3A%2F%2Fwww.fxn.ai%2Fsettings%2Fdeveloper&project-name=document-retrieval-openai-locally&repository-name=document-retrieval-openai-locally&redirect-url=https%3A%2F%2Ffxn.ai%2Fexplore&demo-title=Fully-Local%20Document%20Retrival&demo-description=Using%20OpenAI%20and%20Function%20LLM%20to%20implement%20document%20retrieval%20fully%20locally%20in%20the%20browser.&demo-url=https%3A%2F%2Ffxn-llm-js.vercel.app&demo-image=https%3A%2F%2Ffxn-llm-js.vercel.app%2Fscreenshot.png&skippable-integrations=1)
-
 This is a very basic document retrieval demo. We patch the `OpenAI` client to generate embeddings `locally` using Function LLM. Users can then upload a plain `.txt` file and retrieve relevant information based on a search query.
 
 ## Setup Instructions
-In a few steps:
+One click deploy with Vercel:
 
-1. Duplicate the `.env.example` file and name it `.env.local`.
-2. Get an access key from [fxn.ai](https://fxn.ai/settings/developer) and add it to your `.env.local` file:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffxnai%2Ffxn-llm-js%2Ftree%2Fmain%2Fexample&env=FXN_ACCESS_KEY&envDescription=Provide%20your%20Function%20access%20key%20to%20pull%20the%20Nomic%20embedding%20function.&envLink=https%3A%2F%2Fwww.fxn.ai%2Fsettings%2Fdeveloper&project-name=document-retrieval-openai-locally&repository-name=document-retrieval-openai-locally&demo-title=Fully-Local%20Document%20Retrival&demo-description=Using%20OpenAI%20and%20Function%20LLM%20to%20implement%20document%20retrieval%20fully%20locally%20in%20the%20browser.&demo-url=https%3A%2F%2Ffxn-llm-js.vercel.app&demo-image=https%3A%2F%2Ffxn-llm-js.vercel.app%2Fscreenshot.png&skippable-integrations=1)
+
+<details>
+  <summary>For local development:</summary>
+
+  1. Duplicate the `.env.example` file and name it `.env.local`.
+  2. Get an access key from [fxn.ai](https://fxn.ai/settings/developer) and add it to your `.env.local` file:
     ```bash
     # Function
     FXN_ACCESS_KEY="fxn_..."
     ```
-3. Start the development server by running the following in Terminal:
+  3. Start the development server by running the following in Terminal:
     ```bash
     # Start the development server
     $ npm run dev
     ```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to use the app.
+  4. Open [http://localhost:3000](http://localhost:3000) with your browser to use the app.
+
+</details>
 
 ## How It Works
 This demo covers the retrieval step when building a retrieval augmented generation (RAG) pipeline.
