@@ -14,11 +14,13 @@ One click deploy with Vercel:
 
   1. Duplicate the `.env.example` file and name it `.env.local`.
   2. Get an access key from [fxn.ai](https://fxn.ai/settings/developer) and add it to your `.env.local` file:
+
     ```bash
     # Function
     FXN_ACCESS_KEY="fxn_..."
     ```
   3. Start the development server by running the following in Terminal:
+  
     ```bash
     # Start the development server
     $ npm run dev
