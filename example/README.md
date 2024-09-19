@@ -1,7 +1,10 @@
 # Document Retrieval in the Browser Demo
-This is a very basic document retrieval demo. We patch the `OpenAI` client to generate embeddings `locally` using Function LLM. Users can then upload a plain `.txt` file and retrieve relevant information based on a search query.
 
 https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffxnai%2Ffxn-llm-js%2Ftree%2Fmain%2Fexample&env=FXN_ACCESS_KEY&envDescription=Provide%20your%20Function%20access%20key%20to%20pull%20the%20Nomic%20embedding%20function.&envLink=https%3A%2F%2Fwww.fxn.ai%2Fsettings%2Fdeveloper&project-name=document-retrieval-openai-locally&repository-name=document-retrieval-openai-locally&redirect-url=https%3A%2F%2Ffxn.ai%2Fexplore&demo-title=Fully-Local%20Document%20Retrival&demo-description=Using%20OpenAI%20and%20Function%20LLM%20to%20implement%20document%20retrieval%20fully%20locally%20in%20the%20browser.&demo-url=https%3A%2F%2Ffxn-llm-js.vercel.app&demo-image=https%3A%2F%2Ffxn-llm-js.vercel.app%2Fscreenshot.png)
+
+This is a very basic document retrieval demo. We patch the `OpenAI` client to generate embeddings `locally` using Function LLM. Users can then upload a plain `.txt` file and retrieve relevant information based on a search query.
 
 ## Setup Instructions
 In a few steps:
