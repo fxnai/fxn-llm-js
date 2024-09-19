@@ -8,10 +8,11 @@ import type { Message } from "@/lib/chat"
 import { Dropzone } from "@/components/dropzone"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { ChatBox } from "@/components/chatBox"
 import { ChatHistory } from "@/components/chatHistory"
 import { HighlightedText } from "@/components/highlightedText"
+import { Toolbar } from "@/components/toolbar"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const openai = locally(
   new OpenAI({ apiKey: "fxn", dangerouslyAllowBrowser: true }),
@@ -35,8 +36,11 @@ export default function Home () {
     if (document) {
       const chunks = splitDocument({ document });
       setChunks(chunks);
-    } else
+    } else {
       setChunks([]);
+      setVectorDatabase(null);
+      setMessages([]);
+    }
   }, [document]);
   // Message handler
   const onMessage = async (message: string) => {
@@ -81,6 +85,12 @@ export default function Home () {
       
       {/* Header */}
       <Header />
+
+      {/* Toolbar */}
+      <Toolbar
+        onClear={document ? () => setDocument(null) : null}
+        className="px-8 py-1"
+      />
 
       {/* App */}
       <main className="flex-1 relative">
