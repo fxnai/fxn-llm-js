@@ -20,7 +20,7 @@ export function ChatBox ({ onMessage, disabled, className }: ChatBoxProps) {
     <div className={clsx("flex flex-row items-center", className)}>
       <Input
         type="text"
-        placeholder="Enter your query..."
+        placeholder="Ask questions about the document..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
         disabled={disabled}
