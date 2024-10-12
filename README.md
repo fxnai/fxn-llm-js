@@ -2,7 +2,7 @@
 
 https://github.com/user-attachments/assets/86ae6012-264e-437f-9ab8-94408f4105ba
 
-[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fy5vwgXkz2f%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Function%20community)](https://fxn.ai/community)
+[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2Fy5vwgXkz2f%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&logo=discord&logoColor=white&label=Function%20community)](https://discord.gg/fxn)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/fxnai)](https://twitter.com/fxnai)
 
 Use local LLMs in your browser and Node.js apps. This package is designed to patch `OpenAI` and `Anthropic` clients for running inference locally, using predictors hosted on [Function](https://fxn.ai/explore).
@@ -54,7 +54,7 @@ ___
 
 ## Useful Links
 - [Discover predictors to use in your apps](https://fxn.ai/explore).
-- [Join our Discord community](https://fxn.ai/community).
+- [Join our Discord community](https://discord.gg/fxn).
 - [Check out our docs](https://docs.fxn.ai).
 - Learn more about us [on our blog](https://blog.fxn.ai).
 - Reach out to us at [hi@fxn.ai](mailto:hi@fxn.ai).
